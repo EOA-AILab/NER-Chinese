@@ -24,7 +24,7 @@
 	  |   split_data.py  # 第三步
 	  |——src # 运行调用的脚本
 	  |   |——bert_ner_predict.py  # bert-ner预测脚本
-		bert_ner_api.py  # 控制bert-ner训练和测试的主函数脚本
+	  bert_ner_api.py  # 控制bert-ner训练和测试的主函数脚本
 	  README.md # 说明文件
 	```
 	
