@@ -1,0 +1,447 @@
+NeuroNER version: 1.0-dev
+TensorFlow version: 1.13.1
+{'character_embedding_dimension': 25,
+ 'character_lstm_hidden_state_dimension': 25,
+ 'check_for_digits_replaced_with_zeros': 1,
+ 'check_for_lowercase': 1,
+ 'dataset_text_folder': '../data/conll2003/en',
+ 'debug': 0,
+ 'dropout_rate': 0.5,
+ 'experiment_name': 'test',
+ 'freeze_token_embeddings': 0,
+ 'gradient_clipping_value': 5.0,
+ 'learning_rate': 0.005,
+ 'load_all_pretrained_token_embeddings': 0,
+ 'load_only_pretrained_token_embeddings': 0,
+ 'main_evaluation_mode': 'conll',
+ 'maximum_number_of_epochs': 30,
+ 'number_of_cpu_threads': 8,
+ 'number_of_gpus': 1,
+ 'optimizer': 'sgd',
+ 'output_folder': '../output',
+ 'parameters_filepath': './parameters.ini',
+ 'patience': 30,
+ 'plot_format': 'pdf',
+ 'pretrained_model_folder': '../trained_models/conll_2003_en',
+ 'reload_character_embeddings': 1,
+ 'reload_character_lstm': 1,
+ 'reload_crf': 1,
+ 'reload_feedforward': 1,
+ 'reload_token_embeddings': 1,
+ 'reload_token_lstm': 1,
+ 'remap_unknown_tokens_to_unk': 1,
+ 'spacylanguage': 'en',
+ 'tagging_format': 'bioes',
+ 'token_embedding_dimension': 100,
+ 'token_lstm_hidden_state_dimension': 100,
+ 'token_pretrained_embedding_filepath': '../data/word_vectors/glove.6B.100d.txt',
+ 'tokenizer': 'spacy',
+ 'train_model': 1,
+ 'use_character_lstm': 1,
+ 'use_crf': 1,
+ 'use_pretrained_model': 0,
+ 'verbose': 0}
+Checking the validity of BRAT-formatted train set... Done.
+Checking compatibility between CONLL and BRAT for train_compatible_with_brat set ... Done.
+Checking validity of CONLL BIOES format... Done.
+Checking the validity of BRAT-formatted valid set... Done.
+Checking compatibility between CONLL and BRAT for valid_compatible_with_brat set ... Done.
+Checking validity of CONLL BIOES format... Done.
+Checking the validity of BRAT-formatted test set... Done.
+Checking compatibility between CONLL and BRAT for test_compatible_with_brat set ... Done.
+Checking validity of CONLL BIOES format... Done.
+Load dataset... /home/jovenchu/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+WARNING:tensorflow:From /home/jovenchu/anaconda3/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /home/jovenchu/joven/NER/neuroner/code/src/entity_lstm.py:39: bidirectional_dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.Bidirectional(keras.layers.RNN(cell))`, which is equivalent to this API
+WARNING:tensorflow:From /home/jovenchu/anaconda3/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py:443: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+WARNING:tensorflow:From /home/jovenchu/anaconda3/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py:626: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/jovenchu/joven/NER/neuroner/code/src/entity_lstm.py:118: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+done (325.93 seconds)
+Load token embeddings... done (0.06 seconds)
+number_of_token_original_case_found: 3964
+number_of_token_lowercase_found: 0
+number_of_token_digits_replaced_with_zeros_found: 0
+number_of_token_lowercase_and_digits_replaced_with_zeros_found: 0
+number_of_loaded_word_vectors: 3964
+dataset.vocabulary_size: 4913
+
+Starting epoch 0
+Training completed in 0.00 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 2492204 phrases; correct: 25.
+accuracy:   0.82%; precision:   0.00%; recall:   0.03%; FB1:   0.00
+         LOCATION: precision:   0.00%; recall:   0.00%; FB1:   0.00  2501
+     ORGANIZATION: precision:   0.00%; recall:   0.00%; FB1:   0.00  2501
+           PERSON: precision:   0.04%; recall:   0.01%; FB1:   0.01  4650
+             TIME: precision:   0.00%; recall:   0.11%; FB1:   0.00  2482552
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 356753 phrases; correct: 2.
+accuracy:   0.81%; precision:   0.00%; recall:   0.02%; FB1:   0.00
+         LOCATION: precision:   0.00%; recall:   0.00%; FB1:   0.00  358
+     ORGANIZATION: precision:   0.00%; recall:   0.00%; FB1:   0.00  358
+           PERSON: precision:   0.00%; recall:   0.00%; FB1:   0.00  664
+             TIME: precision:   0.00%; recall:   0.07%; FB1:   0.00  355373
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 711179 phrases; correct: 10.
+accuracy:   0.85%; precision:   0.00%; recall:   0.04%; FB1:   0.00
+         LOCATION: precision:   0.00%; recall:   0.00%; FB1:   0.00  714
+     ORGANIZATION: precision:   0.00%; recall:   0.00%; FB1:   0.00  714
+           PERSON: precision:   0.00%; recall:   0.00%; FB1:   0.00  1300
+             TIME: precision:   0.00%; recall:   0.17%; FB1:   0.00  708451
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/000_train.txt > ../output/en_2019-07-04_00-13-33-977914/000_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/000_valid.txt > ../output/en_2019-07-04_00-13-33-977914/000_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/000_test.txt > ../output/en_2019-07-04_00-13-33-977914/000_test.txt_conll_evaluation.txt
+The last 1 epochs have not shown improvements on the validation set.
+
+Starting epoch 1
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2492.24 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 81640 phrases; correct: 58126.
+accuracy:  95.10%; precision:  71.20%; recall:  65.90%; FB1:  68.45
+         LOCATION: precision:  63.54%; recall:  67.35%; FB1:  65.39  29416
+     ORGANIZATION: precision:  61.26%; recall:  52.38%; FB1:  56.47  13139
+           PERSON: precision:  77.95%; recall:  69.56%; FB1:  73.52  21989
+             TIME: precision:  83.32%; recall:  69.70%; FB1:  75.90  17096
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 11640 phrases; correct: 8249.
+accuracy:  95.13%; precision:  70.87%; recall:  66.27%; FB1:  68.49
+         LOCATION: precision:  64.02%; recall:  67.42%; FB1:  65.68  4174
+     ORGANIZATION: precision:  59.82%; recall:  51.21%; FB1:  55.18  1879
+           PERSON: precision:  76.50%; recall:  70.21%; FB1:  73.22  3136
+             TIME: precision:  83.80%; recall:  71.52%; FB1:  77.17  2451
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 23783 phrases; correct: 16845.
+accuracy:  94.88%; precision:  70.83%; recall:  65.43%; FB1:  68.02
+         LOCATION: precision:  62.44%; recall:  66.43%; FB1:  64.37  8658
+     ORGANIZATION: precision:  61.29%; recall:  51.15%; FB1:  55.76  3857
+           PERSON: precision:  77.61%; recall:  69.59%; FB1:  73.38  6245
+             TIME: precision:  84.17%; recall:  70.21%; FB1:  76.56  5023
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/001_train.txt > ../output/en_2019-07-04_00-13-33-977914/001_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/001_valid.txt > ../output/en_2019-07-04_00-13-33-977914/001_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/001_test.txt > ../output/en_2019-07-04_00-13-33-977914/001_test.txt_conll_evaluation.txt
+Formatting 001_train set from CONLL to BRAT... Done.
+Formatting 001_valid set from CONLL to BRAT... Done.
+Formatting 001_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 2
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2495.57 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 81381 phrases; correct: 68590.
+accuracy:  96.90%; precision:  84.28%; recall:  77.77%; FB1:  80.89
+         LOCATION: precision:  77.47%; recall:  79.99%; FB1:  78.71  28657
+     ORGANIZATION: precision:  81.27%; recall:  66.91%; FB1:  73.40  12652
+           PERSON: precision:  90.05%; recall:  77.61%; FB1:  83.37  21239
+             TIME: precision:  90.18%; recall:  83.10%; FB1:  86.49  18833
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 11531 phrases; correct: 9554.
+accuracy:  96.78%; precision:  82.85%; recall:  76.76%; FB1:  79.69
+         LOCATION: precision:  76.52%; recall:  78.63%; FB1:  77.56  4072
+     ORGANIZATION: precision:  79.45%; recall:  65.01%; FB1:  71.51  1796
+           PERSON: precision:  87.82%; recall:  77.20%; FB1:  82.17  3004
+             TIME: precision:  89.24%; recall:  82.63%; FB1:  85.81  2659
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 23624 phrases; correct: 19761.
+accuracy:  96.66%; precision:  83.65%; recall:  76.75%; FB1:  80.05
+         LOCATION: precision:  76.92%; recall:  78.73%; FB1:  77.82  8329
+     ORGANIZATION: precision:  80.32%; recall:  65.25%; FB1:  72.01  3755
+           PERSON: precision:  88.75%; recall:  76.25%; FB1:  82.03  5984
+             TIME: precision:  90.48%; recall:  83.48%; FB1:  86.84  5556
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/002_train.txt > ../output/en_2019-07-04_00-13-33-977914/002_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/002_valid.txt > ../output/en_2019-07-04_00-13-33-977914/002_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/002_test.txt > ../output/en_2019-07-04_00-13-33-977914/002_test.txt_conll_evaluation.txt
+Formatting 002_train set from CONLL to BRAT... Done.
+Formatting 002_valid set from CONLL to BRAT... Done.
+Formatting 002_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 3
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2493.13 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 87507 phrases; correct: 74072.
+accuracy:  97.46%; precision:  84.65%; recall:  83.98%; FB1:  84.31
+         LOCATION: precision:  85.95%; recall:  79.70%; FB1:  82.71  25736
+     ORGANIZATION: precision:  80.47%; recall:  80.67%; FB1:  80.57  15404
+           PERSON: precision:  79.95%; recall:  88.99%; FB1:  84.23  27429
+             TIME: precision:  93.07%; recall:  86.25%; FB1:  89.53  18938
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 12333 phrases; correct: 10285.
+accuracy:  97.32%; precision:  83.39%; recall:  82.63%; FB1:  83.01
+         LOCATION: precision:  85.28%; recall:  78.22%; FB1:  81.60  3635
+     ORGANIZATION: precision:  79.14%; recall:  78.45%; FB1:  78.79  2176
+           PERSON: precision:  77.52%; recall:  87.30%; FB1:  82.12  3848
+             TIME: precision:  92.74%; recall:  86.35%; FB1:  89.43  2674
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 25445 phrases; correct: 21165.
+accuracy:  97.10%; precision:  83.18%; recall:  82.20%; FB1:  82.69
+         LOCATION: precision:  84.09%; recall:  77.44%; FB1:  80.63  7494
+     ORGANIZATION: precision:  78.86%; recall:  78.15%; FB1:  78.50  4580
+           PERSON: precision:  77.81%; recall:  86.91%; FB1:  82.11  7779
+             TIME: precision:  92.95%; recall:  86.32%; FB1:  89.51  5592
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/003_train.txt > ../output/en_2019-07-04_00-13-33-977914/003_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/003_valid.txt > ../output/en_2019-07-04_00-13-33-977914/003_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/003_test.txt > ../output/en_2019-07-04_00-13-33-977914/003_test.txt_conll_evaluation.txt
+Formatting 003_train set from CONLL to BRAT... Done.
+Formatting 003_valid set from CONLL to BRAT... Done.
+Formatting 003_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 4
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2487.80 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 85214 phrases; correct: 75355.
+accuracy:  97.67%; precision:  88.43%; recall:  85.44%; FB1:  86.91
+         LOCATION: precision:  88.95%; recall:  80.83%; FB1:  84.70  25220
+     ORGANIZATION: precision:  75.88%; recall:  86.65%; FB1:  80.91  17545
+           PERSON: precision:  92.35%; recall:  86.47%; FB1:  89.32  23074
+             TIME: precision:  94.45%; recall:  89.54%; FB1:  91.93  19375
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 11990 phrases; correct: 10439.
+accuracy:  97.48%; precision:  87.06%; recall:  83.87%; FB1:  85.44
+         LOCATION: precision:  88.31%; recall:  78.90%; FB1:  83.34  3541
+     ORGANIZATION: precision:  74.19%; recall:  84.33%; FB1:  78.93  2495
+           PERSON: precision:  89.74%; recall:  85.02%; FB1:  87.32  3237
+             TIME: precision:  94.07%; recall:  89.00%; FB1:  91.47  2717
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 24769 phrases; correct: 21602.
+accuracy:  97.34%; precision:  87.21%; recall:  83.90%; FB1:  85.53
+         LOCATION: precision:  87.86%; recall:  79.33%; FB1:  83.38  7348
+     ORGANIZATION: precision:  74.47%; recall:  84.12%; FB1:  79.00  5221
+           PERSON: precision:  90.45%; recall:  84.18%; FB1:  87.20  6482
+             TIME: precision:  94.35%; recall:  89.59%; FB1:  91.91  5718
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/004_train.txt > ../output/en_2019-07-04_00-13-33-977914/004_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/004_valid.txt > ../output/en_2019-07-04_00-13-33-977914/004_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/004_test.txt > ../output/en_2019-07-04_00-13-33-977914/004_test.txt_conll_evaluation.txt
+Formatting 004_train set from CONLL to BRAT... Done.
+Formatting 004_valid set from CONLL to BRAT... Done.
+Formatting 004_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 5
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2496.78 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 89479 phrases; correct: 78521.
+accuracy:  97.95%; precision:  87.75%; recall:  89.03%; FB1:  88.39
+         LOCATION: precision:  88.89%; recall:  84.92%; FB1:  86.86  26515
+     ORGANIZATION: precision:  77.22%; recall:  89.09%; FB1:  82.73  17727
+           PERSON: precision:  89.98%; recall:  90.02%; FB1:  90.00  24653
+             TIME: precision:  92.70%; recall:  93.37%; FB1:  93.04  20584
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 12603 phrases; correct: 10818.
+accuracy:  97.66%; precision:  85.84%; recall:  86.91%; FB1:  86.37
+         LOCATION: precision:  87.22%; recall:  81.98%; FB1:  84.52  3725
+     ORGANIZATION: precision:  74.49%; recall:  86.33%; FB1:  79.97  2544
+           PERSON: precision:  87.43%; recall:  88.32%; FB1:  87.87  3452
+             TIME: precision:  92.16%; recall:  92.48%; FB1:  92.32  2882
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 25919 phrases; correct: 22322.
+accuracy:  97.57%; precision:  86.12%; recall:  86.70%; FB1:  86.41
+         LOCATION: precision:  86.66%; recall:  82.27%; FB1:  84.40  7726
+     ORGANIZATION: precision:  76.23%; recall:  86.26%; FB1:  80.94  5230
+           PERSON: precision:  87.35%; recall:  86.96%; FB1:  87.16  6934
+             TIME: precision:  92.60%; recall:  92.71%; FB1:  92.66  6029
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/005_train.txt > ../output/en_2019-07-04_00-13-33-977914/005_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/005_valid.txt > ../output/en_2019-07-04_00-13-33-977914/005_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/005_test.txt > ../output/en_2019-07-04_00-13-33-977914/005_test.txt_conll_evaluation.txt
+Formatting 005_train set from CONLL to BRAT... Done.
+Formatting 005_valid set from CONLL to BRAT... Done.
+Formatting 005_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 6
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2489.84 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 82312 phrases; correct: 76114.
+accuracy:  98.17%; precision:  92.47%; recall:  86.30%; FB1:  89.28
+         LOCATION: precision:  90.71%; recall:  82.30%; FB1:  86.30  25181
+     ORGANIZATION: precision:  89.40%; recall:  80.18%; FB1:  84.54  13781
+           PERSON: precision:  93.87%; recall:  89.05%; FB1:  91.40  23377
+             TIME: precision:  95.17%; recall:  93.01%; FB1:  94.08  19973
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 11504 phrases; correct: 10436.
+accuracy:  97.85%; precision:  90.72%; recall:  83.84%; FB1:  87.14
+         LOCATION: precision:  89.23%; recall:  79.43%; FB1:  84.05  3528
+     ORGANIZATION: precision:  87.49%; recall:  77.08%; FB1:  81.96  1934
+           PERSON: precision:  90.53%; recall:  86.48%; FB1:  88.46  3264
+             TIME: precision:  95.07%; recall:  91.96%; FB1:  93.49  2778
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 23855 phrases; correct: 21587.
+accuracy:  97.74%; precision:  90.49%; recall:  83.84%; FB1:  87.04
+         LOCATION: precision:  88.61%; recall:  79.66%; FB1:  83.90  7316
+     ORGANIZATION: precision:  86.77%; recall:  77.22%; FB1:  81.72  4113
+           PERSON: precision:  90.99%; recall:  86.00%; FB1:  88.43  6583
+             TIME: precision:  94.90%; recall:  92.08%; FB1:  93.47  5843
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/006_train.txt > ../output/en_2019-07-04_00-13-33-977914/006_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/006_valid.txt > ../output/en_2019-07-04_00-13-33-977914/006_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/006_test.txt > ../output/en_2019-07-04_00-13-33-977914/006_test.txt_conll_evaluation.txt
+Formatting 006_train set from CONLL to BRAT... Done.
+Formatting 006_valid set from CONLL to BRAT... Done.
+Formatting 006_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 7
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2489.66 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 89549 phrases; correct: 80186.
+accuracy:  98.21%; precision:  89.54%; recall:  90.92%; FB1:  90.22
+         LOCATION: precision:  87.78%; recall:  88.95%; FB1:  88.36  28125
+     ORGANIZATION: precision:  81.55%; recall:  88.68%; FB1:  84.97  16709
+           PERSON: precision:  92.77%; recall:  91.50%; FB1:  92.13  24306
+             TIME: precision:  94.68%; recall:  94.55%; FB1:  94.62  20409
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 12628 phrases; correct: 10996.
+accuracy:  97.89%; precision:  87.08%; recall:  88.34%; FB1:  87.70
+         LOCATION: precision:  85.58%; recall:  85.79%; FB1:  85.69  3973
+     ORGANIZATION: precision:  78.46%; recall:  85.15%; FB1:  81.67  2382
+           PERSON: precision:  89.02%; recall:  89.00%; FB1:  89.01  3416
+             TIME: precision:  94.01%; recall:  93.52%; FB1:  93.77  2857
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 26046 phrases; correct: 22702.
+accuracy:  97.72%; precision:  87.16%; recall:  88.17%; FB1:  87.66
+         LOCATION: precision:  84.78%; recall:  85.78%; FB1:  85.28  8234
+     ORGANIZATION: precision:  79.36%; recall:  85.59%; FB1:  82.36  4985
+           PERSON: precision:  89.59%; recall:  88.01%; FB1:  88.80  6842
+             TIME: precision:  94.15%; recall:  93.57%; FB1:  93.86  5985
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/007_train.txt > ../output/en_2019-07-04_00-13-33-977914/007_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/007_valid.txt > ../output/en_2019-07-04_00-13-33-977914/007_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/007_test.txt > ../output/en_2019-07-04_00-13-33-977914/007_test.txt_conll_evaluation.txt
+Formatting 007_train set from CONLL to BRAT... Done.
+Formatting 007_valid set from CONLL to BRAT... Done.
+Formatting 007_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 8
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2490.54 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 86652 phrases; correct: 79448.
+accuracy:  98.40%; precision:  91.69%; recall:  90.08%; FB1:  90.88
+         LOCATION: precision:  88.70%; recall:  89.28%; FB1:  88.99  27935
+     ORGANIZATION: precision:  83.55%; recall:  89.55%; FB1:  86.45  16469
+           PERSON: precision:  96.13%; recall:  89.55%; FB1:  92.72  22956
+             TIME: precision:  97.68%; recall:  92.21%; FB1:  94.86  19292
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 12183 phrases; correct: 10874.
+accuracy:  98.01%; precision:  89.26%; recall:  87.36%; FB1:  88.30
+         LOCATION: precision:  86.47%; recall:  85.92%; FB1:  86.19  3938
+     ORGANIZATION: precision:  79.64%; recall:  85.56%; FB1:  82.50  2358
+           PERSON: precision:  93.20%; recall:  87.06%; FB1:  90.03  3192
+             TIME: precision:  97.07%; recall:  91.09%; FB1:  93.98  2695
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 25106 phrases; correct: 22418.
+accuracy:  97.89%; precision:  89.29%; recall:  87.07%; FB1:  88.17
+         LOCATION: precision:  85.65%; recall:  85.81%; FB1:  85.73  8153
+     ORGANIZATION: precision:  80.62%; recall:  86.24%; FB1:  83.34  4944
+           PERSON: precision:  93.77%; recall:  85.81%; FB1:  89.62  6374
+             TIME: precision:  97.11%; recall:  90.87%; FB1:  93.88  5635
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/008_train.txt > ../output/en_2019-07-04_00-13-33-977914/008_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/008_valid.txt > ../output/en_2019-07-04_00-13-33-977914/008_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/008_test.txt > ../output/en_2019-07-04_00-13-33-977914/008_test.txt_conll_evaluation.txt
+Formatting 008_train set from CONLL to BRAT... Done.
+Formatting 008_valid set from CONLL to BRAT... Done.
+Formatting 008_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 9
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% doneTraining 5.20% doneTraining 5.60% doneTraining 6.00% doneTraining 6.40% doneTraining 6.80% doneTraining 7.20% doneTraining 7.60% doneTraining 8.00% doneTraining 8.40% doneTraining 8.80% doneTraining 9.20% doneTraining 9.60% doneTraining 10.00% doneTraining 10.40% doneTraining 10.80% doneTraining 11.20% doneTraining 11.60% doneTraining 12.00% doneTraining 12.40% doneTraining 12.79% doneTraining 13.19% doneTraining 13.59% doneTraining 13.99% doneTraining 14.39% doneTraining 14.79% doneTraining 15.19% doneTraining 15.59% doneTraining 15.99% doneTraining 16.39% doneTraining 16.79% doneTraining 17.19% doneTraining 17.59% doneTraining 17.99% doneTraining 18.39% doneTraining 18.79% doneTraining 19.19% doneTraining 19.59% doneTraining 19.99% doneTraining 20.39% doneTraining 20.79% doneTraining 21.19% doneTraining 21.59% doneTraining 21.99% doneTraining 22.39% doneTraining 22.79% doneTraining 23.19% doneTraining 23.59% doneTraining 23.99% doneTraining 24.39% doneTraining 24.79% doneTraining 25.19% doneTraining 25.59% doneTraining 25.99% doneTraining 26.39% doneTraining 26.79% doneTraining 27.19% doneTraining 27.59% doneTraining 27.99% doneTraining 28.39% doneTraining 28.79% doneTraining 29.19% doneTraining 29.59% doneTraining 29.99% doneTraining 30.39% doneTraining 30.79% doneTraining 31.19% doneTraining 31.59% doneTraining 31.99% doneTraining 32.39% doneTraining 32.79% doneTraining 33.19% doneTraining 33.59% doneTraining 33.99% doneTraining 34.39% doneTraining 34.79% doneTraining 35.19% doneTraining 35.59% doneTraining 35.99% doneTraining 36.39% doneTraining 36.79% doneTraining 37.19% doneTraining 37.58% doneTraining 37.98% doneTraining 38.38% doneTraining 38.78% doneTraining 39.18% doneTraining 39.58% doneTraining 39.98% doneTraining 40.38% doneTraining 40.78% doneTraining 41.18% doneTraining 41.58% doneTraining 41.98% doneTraining 42.38% doneTraining 42.78% doneTraining 43.18% doneTraining 43.58% doneTraining 43.98% doneTraining 44.38% doneTraining 44.78% doneTraining 45.18% doneTraining 45.58% doneTraining 45.98% doneTraining 46.38% doneTraining 46.78% doneTraining 47.18% doneTraining 47.58% doneTraining 47.98% doneTraining 48.38% doneTraining 48.78% doneTraining 49.18% doneTraining 49.58% doneTraining 49.98% doneTraining 50.38% doneTraining 50.78% doneTraining 51.18% doneTraining 51.58% doneTraining 51.98% doneTraining 52.38% doneTraining 52.78% doneTraining 53.18% doneTraining 53.58% doneTraining 53.98% doneTraining 54.38% doneTraining 54.78% doneTraining 55.18% doneTraining 55.58% doneTraining 55.98% doneTraining 56.38% doneTraining 56.78% doneTraining 57.18% doneTraining 57.58% doneTraining 57.98% doneTraining 58.38% doneTraining 58.78% doneTraining 59.18% doneTraining 59.58% doneTraining 59.98% doneTraining 60.38% doneTraining 60.78% doneTraining 61.18% doneTraining 61.58% doneTraining 61.98% doneTraining 62.38% doneTraining 62.77% doneTraining 63.17% doneTraining 63.57% doneTraining 63.97% doneTraining 64.37% doneTraining 64.77% doneTraining 65.17% doneTraining 65.57% doneTraining 65.97% doneTraining 66.37% doneTraining 66.77% doneTraining 67.17% doneTraining 67.57% doneTraining 67.97% doneTraining 68.37% doneTraining 68.77% doneTraining 69.17% doneTraining 69.57% doneTraining 69.97% doneTraining 70.37% doneTraining 70.77% doneTraining 71.17% doneTraining 71.57% doneTraining 71.97% doneTraining 72.37% doneTraining 72.77% doneTraining 73.17% doneTraining 73.57% doneTraining 73.97% doneTraining 74.37% doneTraining 74.77% doneTraining 75.17% doneTraining 75.57% doneTraining 75.97% doneTraining 76.37% doneTraining 76.77% doneTraining 77.17% doneTraining 77.57% doneTraining 77.97% doneTraining 78.37% doneTraining 78.77% doneTraining 79.17% doneTraining 79.57% doneTraining 79.97% doneTraining 80.37% doneTraining 80.77% doneTraining 81.17% doneTraining 81.57% doneTraining 81.97% doneTraining 82.37% doneTraining 82.77% doneTraining 83.17% doneTraining 83.57% doneTraining 83.97% doneTraining 84.37% doneTraining 84.77% doneTraining 85.17% doneTraining 85.57% doneTraining 85.97% doneTraining 86.37% doneTraining 86.77% doneTraining 87.17% doneTraining 87.56% doneTraining 87.96% doneTraining 88.36% doneTraining 88.76% doneTraining 89.16% doneTraining 89.56% doneTraining 89.96% doneTraining 90.36% doneTraining 90.76% doneTraining 91.16% doneTraining 91.56% doneTraining 91.96% doneTraining 92.36% doneTraining 92.76% doneTraining 93.16% doneTraining 93.56% doneTraining 93.96% doneTraining 94.36% doneTraining 94.76% doneTraining 95.16% doneTraining 95.56% doneTraining 95.96% doneTraining 96.36% doneTraining 96.76% doneTraining 97.16% doneTraining 97.56% doneTraining 97.96% doneTraining 98.36% doneTraining 98.76% doneTraining 99.16% doneTraining 99.56% doneTraining 99.96% doneTraining completed in 2504.79 seconds
+Evaluate model on the train set
+processed 2501839 tokens with 88198 phrases; found: 86382 phrases; correct: 79704.
+accuracy:  98.44%; precision:  92.27%; recall:  90.37%; FB1:  91.31
+         LOCATION: precision:  94.15%; recall:  85.03%; FB1:  89.36  25066
+     ORGANIZATION: precision:  82.90%; recall:  91.53%; FB1:  87.00  16966
+           PERSON: precision:  94.53%; recall:  91.44%; FB1:  92.96  23835
+             TIME: precision:  95.10%; recall:  95.46%; FB1:  95.28  20515
+
+Evaluate model on the valid set
+processed 358131 tokens with 12447 phrases; found: 12109 phrases; correct: 10890.
+accuracy:  98.06%; precision:  89.93%; recall:  87.49%; FB1:  88.70
+         LOCATION: precision:  92.76%; recall:  81.76%; FB1:  86.91  3493
+     ORGANIZATION: precision:  79.61%; recall:  88.20%; FB1:  83.68  2432
+           PERSON: precision:  90.51%; recall:  87.97%; FB1:  89.23  3321
+             TIME: precision:  94.59%; recall:  94.29%; FB1:  94.44  2863
+
+Evaluate model on the test set
+processed 713902 tokens with 25747 phrases; found: 24953 phrases; correct: 22483.
+accuracy:  97.96%; precision:  90.10%; recall:  87.32%; FB1:  88.69
+         LOCATION: precision:  91.59%; recall:  81.76%; FB1:  86.40  7265
+     ORGANIZATION: precision:  80.57%; recall:  87.82%; FB1:  84.04  5038
+           PERSON: precision:  91.34%; recall:  87.54%; FB1:  89.40  6675
+             TIME: precision:  94.95%; recall:  94.20%; FB1:  94.57  5975
+
+Generating plots for the train set
+Generating plots for the valid set
+Generating plots for the test set
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/009_train.txt > ../output/en_2019-07-04_00-13-33-977914/009_train.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/009_valid.txt > ../output/en_2019-07-04_00-13-33-977914/009_valid.txt_conll_evaluation.txt
+shell_command: perl ./conlleval < ../output/en_2019-07-04_00-13-33-977914/009_test.txt > ../output/en_2019-07-04_00-13-33-977914/009_test.txt_conll_evaluation.txt
+Formatting 009_train set from CONLL to BRAT... Done.
+Formatting 009_valid set from CONLL to BRAT... Done.
+Formatting 009_test set from CONLL to BRAT... Done.
+The last 0 epochs have not shown improvements on the validation set.
+
+Starting epoch 10
+Training 0.40% doneTraining 0.80% doneTraining 1.20% doneTraining 1.60% doneTraining 2.00% doneTraining 2.40% doneTraining 2.80% doneTraining 3.20% doneTraining 3.60% doneTraining 4.00% doneTraining 4.40% doneTraining 4.80% done
