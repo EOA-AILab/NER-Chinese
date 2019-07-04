@@ -41,7 +41,7 @@
 	            else:
 	        		bert_path = '/home/macan/ml/data/chinese_L-12_H-768_A-12/'
 	                root_path = '/home/macan/ml/workspace/BERT-BiLSTM-CRF-NER'
-	            ```
+	        ```
           
           
           
@@ -56,7 +56,7 @@
 	                    # 开启预测：
                       else:
 	                      predict_cmd()
-	            ```
+	        ```
 	
 3. 训练数据和模型下载：链接:https://pan.baidu.com/s/1PXhQE5iEecLf0IiRHN52Lw  密码:sx2z
 
