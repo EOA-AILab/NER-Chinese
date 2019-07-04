@@ -2,8 +2,8 @@
 
 1. 项目目录
     ```xml
-    bert_ner
-    	|——bert_ner # 模型与数据文件
+     bert_ner
+      |——bert_ner # 模型与数据文件
 	  |   |——bert_base  # bert的训练代码
 	  |   |——train  # 主要训练代码
 	  |   |——bert_lstm_ner.py  # 训练的主函数代码
@@ -46,7 +46,7 @@
           
           
           * 在`watson_IE_RE_all/src/bert_ner_api.py`文件中启动训练或预测（关闭训练）
-              ```python
+              ```python 
                  if __name__ == '__main__':
                       use_train = False
                       # use_train = True
